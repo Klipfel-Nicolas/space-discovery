@@ -1,0 +1,127 @@
+.home {
+    @extend %viewport;
+    background-color: #000000;
+    
+    /*  --------------------
+            Top Row 
+    --------------------  */
+    .home_container_header {   
+    
+        // Title
+        .home_container_header_title {
+            display: flex;
+            align-items: center;
+
+            h1 {
+                position: relative;
+
+                span {
+                    @extend %title-53;
+
+                   &:nth-child(1) {
+                    color: $color-white;
+                   }
+
+                   &:nth-child(2) {
+                    color: $color-azul-blue;
+                   }
+                }
+
+                &:after {
+                    position: absolute;
+                    content: '';
+                    top: 50%;
+                    right: -55%;
+                    width: 50%;
+                    height: 3px;
+                    background-color: $color-tomato-red;
+                }
+            }
+
+            img {
+                width: 70px;
+                margin-right: 10px;
+            }
+        }
+
+        // Contact
+        .home_container_header_contact {
+            position: relative;
+            width: 60px;
+
+            a {
+                .animation-box {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 60px;
+                    height: 120px;
+                    text-align: center;
+                
+                    .svg_contact {
+                        transition: all 2s $ease-out-expo;
+                    }
+    
+                    p {
+                        margin: 0 auto;
+                        writing-mode: vertical-lr;
+                        text-orientation: upright;
+                        letter-spacing: 1.02rem;
+                        transition: all .2s ease-in;
+                    }
+                }
+                
+            }
+
+            a:hover,
+            a span:hover {
+                .svg_contact {
+                    transform: translate(-20px, 30px) rotate(70deg);
+                    
+                    path {
+                       fill: $color-tomato-red; 
+                    }
+                }
+
+                p {
+                  color: $color-tomato-red;
+                  letter-spacing: 0.5rem;
+                }
+            }
+            
+        }
+    }
+
+    /*  --------------------
+            Middle Row 
+    --------------------  */
+    .home_container_middle-content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    
+        img {
+            max-height: 350px;
+        }
+    }
+
+    /*  --------------------
+            Bottom Row 
+    --------------------  */
+    .home_container_bottom-content {
+        img {
+            max-width: 350px;
+        }
+
+        ul {
+            li {
+                letter-spacing: .1rem;
+                padding: 5px;
+                text-align: end;
+            }
+        }
+    }
+
+}
+
+

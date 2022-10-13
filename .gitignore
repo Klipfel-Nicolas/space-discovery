@@ -1,0 +1,22 @@
+.vercel
+# logs
+yarn-debug.log*
+npm-error.log*
+
+# dependency directories
+node_modules/
+
+# webpack build output
+public/
+dist/
+
+# Gulp scss compiled
+css/
+
+
+
+# environment variables
+.env
+
+# global rules
+.DS_Store

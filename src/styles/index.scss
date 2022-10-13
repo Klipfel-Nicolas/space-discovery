@@ -1,0 +1,32 @@
+@import './base/reset';
+@import './base/fonts';
+
+// -------------------------------- U T I L S ---------------------------------------
+
+@import './utils/variables';
+@import './utils/functions';
+@import './utils/mixins';
+@import './utils/vendors';
+@import './utils/responsive';
+
+// ------------------------------- S H A R E D --------------------------------------
+
+@import './shared/row-layout.scss';
+@import './shared/titles';
+
+// --------------------------------- B A S E ----------------------------------------
+
+@import './base/base';
+
+// --------------------------- C O M P O N E N T S ----------------------------------
+
+
+// ------------------------------- L A Y O U T S ------------------------------------
+
+
+// -------------------------- P A G E S  D I R E C T O R Y --------------------------
+
+
+// Home
+@import './pages/home/home';
+// ------------------------------------
