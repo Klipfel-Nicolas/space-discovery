@@ -20,6 +20,13 @@ html {
 body {
 }
 
+.experience {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+
 a {
   color: inherit;
   text-decoration: none;
@@ -40,9 +47,9 @@ img {
 }
 
 canvas.webgl {
-  position: fixed;
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
   outline: none;
+  z-index: 100000;
 }
 

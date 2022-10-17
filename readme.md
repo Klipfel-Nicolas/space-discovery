@@ -1,7 +1,5 @@
-# Three.js Journey
-
 ## Setup
-
+``` bash
 # Install dependencies (only the first time)
 npm install
 
@@ -19,3 +17,5 @@ npm run dev
 
 # Compile the scss
 gulp
+
+```
