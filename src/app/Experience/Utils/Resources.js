@@ -61,9 +61,19 @@ export default class Resources extends EventEmitter
         this.items[source.name] = file
         
         this.loaded++
+        this.setHtmlContentLoader(this.loaded, this.toLoad)
 
         if(this.loaded == this.toLoad) {
             this.trigger('ready')
+            document.querySelector('.preloader').classList.add('loaded')
         }
+    }
+
+    setHtmlContentLoader(loaded, totalToLoad)
+    {
+        const percentLoaded = loaded / totalToLoad * 100
+        document.querySelector('.preloader_items-count').textContent = `${this.loaded}  / ${this.toLoad} items`
+        document.querySelector('.preloader_progress-bar').style.transform = `scaleX(${percentLoaded / 100})`
+        document.querySelector('.preloader_progress-percent').textContent = `${percentLoaded} %`
     }
 }

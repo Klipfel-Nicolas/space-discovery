@@ -1,4 +1,4 @@
-import * as THREE from 'three'
+import { CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 
 import Experience from "../Experience";
 
@@ -17,9 +17,9 @@ export default class Satellites
         this.satelliteTwo = this.resources.items.satelliteTwo
         this.satelliteThree = this.resources.items.satelliteThree
         this.perseveranceRover = this.resources.items.perseveranceRover
-        this.mars = this.experience.space.mars
 
         // Satellite One ---------
+        this.createLink(this.satelliteOne, 'Curiosity', '#')
         this.setModel(this.satelliteOne)
         this.setScale(this.satelliteOne, 1.5)
         this.setRotation(
@@ -32,17 +32,35 @@ export default class Satellites
         )
 
         // Satellite Two ---------
+        this.createLink(this.satelliteTwo, 'Opportunity', '#')
         this.setModel(this.satelliteTwo)
         this.setScale(this.satelliteTwo, 0.009)
 
         // Satellite Three ---------
+        this.createLink(this.satelliteThree, 'Daily Picture', '#')
         this.setModel(this.satelliteThree)
         this.setScale(this.satelliteThree, 0.1)
 
         // Rover ---------
-        /**
-         * Is set in Plantes to rotate with Mars
-         */
+        // Is set in Planets to rotate with Mars
+        this.createLink(this.perseveranceRover, 'Perseverence', 'https://www.google.fr/')
+        this.setScale(this.perseveranceRover, 0.38)
+        this.setPosition(
+            this.perseveranceRover, 
+            {
+                x: 0,
+                y: 1.2,
+                z: 1.56 
+            }
+        )
+        this.setRotation(
+            this.perseveranceRover,
+            {
+                x: 0.93,
+                y: 0-3,
+                z: 0
+            }
+        )
 
     }
 
@@ -52,6 +70,29 @@ export default class Satellites
      setModel(model)
      {
         this.scene.add(model.scene)
+     }
+
+     /**
+      * Create hyperlink for each object
+      * @param {object} model 
+      * @param {string} name 
+      * @param {string} link 
+      */
+     createLink(model, name, link)
+     {
+        const hyperlink = document.createElement('a');
+        hyperlink.href = link;
+        hyperlink.textContent = name;
+        hyperlink.className = 'home_label';
+
+        hyperlink.addEventListener('pointerdown', (e)=> {
+            window.location.replace(e.target.href)
+        })
+        
+        const label = new CSS2DObject(hyperlink);
+        label.position.set( 0, 0, 0 );
+
+        model.scene.add(label)
      }
 
      setScale(model, scale)

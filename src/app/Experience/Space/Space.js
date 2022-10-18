@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import {  BufferGeometry } from 'three'
-import Stats from 'stats-js'
 
 import Experience from "../Experience";
 import Environment from './Environment';
@@ -15,6 +14,9 @@ export default class Space
         this.scene = this.experience.scene;
         this.resources = this.experience.resources
 
+        // Home Css renderer for orbit controls
+        this.experience.camera.setOrbitControls(this.experience.renderer.labelRenderer.domElement)
+
         // Debug
         this.debug = this.experience.debug
 
@@ -28,7 +30,6 @@ export default class Space
 
             this.environment = new Environment()
         })
-
     }
 
     setStars()

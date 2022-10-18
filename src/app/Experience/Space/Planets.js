@@ -26,29 +26,9 @@ export default class Planets
         this.setMesh()
 
 
-        // Rover
-        this.satellites = this.experience.space.satellites;
-        this.perseveranceRover = this.resources.items.perseveranceRover
-
+        // Rover Perseverence
+        this.perseveranceRover = this.experience.space.satellites.perseveranceRover
         this.mesh.add(this.perseveranceRover.scene)
-
-        this.satellites.setScale(this.perseveranceRover, 0.38)
-        this.satellites.setPosition(
-            this.perseveranceRover, 
-            {
-                x: 0,
-                y: 1.2,
-                z: 1.56 
-            }
-        )
-        this.satellites.setRotation(
-            this.perseveranceRover,
-            {
-                x: 0.93,
-                y: 0-3,
-                z: 0
-            }
-        )
     }
 
     setGeometry()

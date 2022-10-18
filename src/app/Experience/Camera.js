@@ -13,7 +13,7 @@ export default class Camera
         this.scene = this.experience.scene
         
         this.createPerspectiveCamera()
-        this.setOrbitControls()
+        this.setOrbitControls(this.canvas)
         
     }
 
@@ -31,9 +31,9 @@ export default class Camera
         this.scene.add(this.perspectiveCamera);
     }
 
-    setOrbitControls()
+    setOrbitControls(renderer)
     {
-        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas)
+        this.controls = new OrbitControls(this.perspectiveCamera, renderer)
         this.controls.enableDamping = true
         this.controls.minDistance = 10;
         this.controls.maxDistance = 35; 

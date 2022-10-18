@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { CSS2DRenderer } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 
 import Experience from './Experience'
 
@@ -23,6 +24,7 @@ export default class Renderer
         }
 
         this.setRenderer();
+        this.setCSSRenderer();
     }
 
     setRenderer()
@@ -62,6 +64,14 @@ export default class Renderer
 
     }
 
+    setCSSRenderer()
+    {
+        this.labelRenderer = new CSS2DRenderer();
+        this.labelRenderer.setSize(this.sizes.width, this.sizes.height);
+        this.labelRenderer.domElement.style.position = 'absolute';
+	    this.labelRenderer.domElement.style.top = 0;
+        document.body.appendChild( this.labelRenderer.domElement );
+    }
 
     /**
      * Resize event
@@ -70,6 +80,8 @@ export default class Renderer
     {
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio, 2);
+
+        this.labelRenderer.setSize(this.sizes.width, this.sizes.height);
     }
 
     /**
@@ -78,5 +90,7 @@ export default class Renderer
     update()
     {
         this.renderer.render(this.scene, this.camera.perspectiveCamera)
+
+        this.labelRenderer.render(this.scene, this.camera.perspectiveCamera);
     }
 }

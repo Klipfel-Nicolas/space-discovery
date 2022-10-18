@@ -121,7 +121,21 @@
             }
         }
     }
-
+    
 }
 
+/*  --------------------
+        Link three.js 
+    --------------------  */
+    a.home_label {
+        display: block;
+        width: 100px;
+        height: 100px;
+        transition: all .2s ease;
+        font-size: 1.2rem;
+    }
 
+    a.home_label:hover {
+        color: $color-tomato-red;
+        
+    }
