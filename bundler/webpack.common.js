@@ -1,43 +1,44 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const path = require('path')
+const webpack = require('webpack')
+
+const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev'
+
+const dirApp = path.join(__dirname, '../src/app');
+const dirStyles = path.join(__dirname, '../src/styles');
 
 module.exports = {
-    entry: path.resolve(__dirname, '../src/index.js'),
-    output:
-    {
-        hashFunction: 'xxhash64',
-        filename: 'bundle.[contenthash].js',
-        path: path.resolve(__dirname, '../dist')
-    },
-    devtool: 'source-map',
+    entry: [path.join(dirApp, 'index.js'), path.join(dirStyles, 'index.scss')],
+
+    /* resolve: {
+        modules: [dirApp, dirStyles],
+      }, */
+    
     plugins:
     [
+        new CleanWebpackPlugin(),
+
+        new webpack.DefinePlugin({
+            IS_DEVELOPMENT,
+        }),
+
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, '../static') }
+                { 
+                    from: path.resolve(__dirname, '../static') 
+                }
             ]
         }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../src/views/index.html'),
-            minify: true
-        }),
-        new MiniCSSExtractPlugin()
-    ],
-    module:
-    {
-        rules:
-        [
-            // HTML
-            {
-                test: /\.(html)$/,
-                use:
-                [
-                    'html-loader'
-                ]
-            },
 
+        new MiniCSSExtractPlugin({
+            filename: '[name].css',
+        }),
+    ],
+    module: {
+        rules: [
             // JS
             {
                 test: /\.js$/,
@@ -48,33 +49,35 @@ module.exports = {
                 ]
             },
 
-            // CSS
-            {
-                test: /\.css$/,
-                use:
-                [
-                    MiniCSSExtractPlugin.loader,
-                    'css-loader'
-                ]
-            },
-
             //SCSS
-            /* {
-                test: /\.s[ac]ss$/i,
+            {
+                test: /\.scss$/i,
                 use: [
-                  "style-loader",
-                  "css-loader",
-                  "sass-loader",
+                    {
+                        loader: MiniCSSExtractPlugin.loader, 
+                    },
+                    
+                    {
+                        loader: "css-loader",
+                    },
+
+                    {
+                        loader: 'postcss-loader',
+                    },
+
+                    {
+                        loader: "sass-loader",
+                    }
                 ],
-              }, */
+              },
 
             // Images
             {
-                test: /\.(jpg|png|gif|svg)$/,
+                test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
                 type: 'asset/resource',
                 generator:
                 {
-                    filename: 'assets/images/[hash][ext]'
+                    filename: 'assets/images/[name][ext]'
                 }
             },
 

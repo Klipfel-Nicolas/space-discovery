@@ -43,7 +43,7 @@ export default class Satellites
 
         // Rover ---------
         // Is set in Planets to rotate with Mars
-        this.createLink(this.perseveranceRover, 'Perseverence', 'https://www.google.fr/')
+        this.createLink(this.perseveranceRover, 'Perseverence', '/perseverence')
         this.setScale(this.perseveranceRover, 0.38)
         this.setPosition(
             this.perseveranceRover, 

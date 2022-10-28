@@ -6,7 +6,7 @@ import Environment from './Environment';
 import Planets from './Planets';
 import Satellites from './Satellites';
 
-export default class Space
+export default class HomeExperience
 {
     constructor()
     {

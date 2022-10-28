@@ -1,6 +1,6 @@
 .home {
     @extend %viewport;
-    background: url('/src/assets/img/spaceTexture.jpeg');
+    background: url('/static/assets/img/spaceTexture.jpeg');
     
     /*  --------------------
             Top Row 
@@ -44,52 +44,6 @@
             }
         }
 
-        // Contact
-        .home_container_header_contact {
-            position: relative;
-            width: 60px;
-
-            a {
-                .animation-box {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 60px;
-                    height: 120px;
-                    text-align: center;
-                
-                    .svg_contact {
-                        transition: all 2s $ease-out-expo;
-                    }
-    
-                    p {
-                        margin: 0 auto;
-                        writing-mode: vertical-lr;
-                        text-orientation: upright;
-                        letter-spacing: 1.02rem;
-                        transition: all .2s ease-in;
-                    }
-                }
-                
-            }
-
-            a:hover,
-            a span:hover {
-                .svg_contact {
-                    transform: translate(-20px, 30px) rotate(70deg);
-                    
-                    path {
-                       fill: $color-tomato-red; 
-                    }
-                }
-
-                p {
-                  color: $color-tomato-red;
-                  letter-spacing: 0.5rem;
-                }
-            }
-            
-        }
     }
 
     /*  --------------------

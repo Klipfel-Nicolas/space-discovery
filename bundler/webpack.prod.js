@@ -1,14 +1,16 @@
+const path = require('path');
 const { merge } = require('webpack-merge')
-const commonConfiguration = require('./webpack.common.js')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const commonConfiguration = require('./webpack.common')
 
 module.exports = merge(
     commonConfiguration,
     {
         mode: 'production',
-        plugins:
-        [
-            new CleanWebpackPlugin()
-        ]
+
+         output:
+        {
+            path: path.resolve(__dirname, '../dist'),
+            clean: true,
+        },
     }
 )

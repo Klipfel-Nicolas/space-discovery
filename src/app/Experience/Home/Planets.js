@@ -27,7 +27,7 @@ export default class Planets
 
 
         // Rover Perseverence
-        this.perseveranceRover = this.experience.space.satellites.perseveranceRover
+        this.perseveranceRover = this.experience.homeExperience.satellites.perseveranceRover
         this.mesh.add(this.perseveranceRover.scene)
     }
 

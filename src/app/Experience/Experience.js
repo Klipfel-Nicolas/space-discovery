@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 import Camera from './Camera';
 import Renderer from './Renderer';
-import Space from './Space/Space';
+
+import HomeExperience from './Home/HomeExperience';
 
 import Debug from './Utils/Debug';
 import Resources from './Utils/Resources';
@@ -15,7 +16,7 @@ export default class Experience
     // Singleton
     static instance
 
-    constructor(canvas) 
+    constructor( template ) 
     {
         // Singleton
         if(Experience.instance) {
@@ -24,16 +25,15 @@ export default class Experience
         Experience.instance = this;
 
         // Setup
-        this.canvas = canvas;
-        this.debug = new Debug()
+        this.template = template;
+        this.canvas = document.querySelector('canvas.webgl');
+        this.debug = new Debug();
         this.sizes = new Sizes();
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.resources = new Resources(sources);
         this.camera = new Camera();
         this.renderer = new Renderer();
-
-        this.space = new Space();
 
 
         // Resize event
@@ -46,6 +46,28 @@ export default class Experience
         this.time.on('tick', () => {
             this.update();
         })
+    }
+
+    /**
+     * Create destroy pages
+     */
+    //   Home
+    createHome() {
+        this.homeExperience = new HomeExperience();
+    }
+
+    destroyHome() {
+
+    }
+
+    /**
+     * Change page
+     */
+    onPageChange(template)
+    {
+        if (template === 'home') {
+            this.createHome();
+        }
     }
 
     /**
@@ -63,6 +85,9 @@ export default class Experience
     update() {
         this.camera.update();
         this.renderer.update();
-        this.space.update();
+
+        if(this.homeExperience) {
+           this.homeExperience.update(); 
+        }
     }
 }

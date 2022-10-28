@@ -1,7 +1,7 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
-
-const commonConfiguration = require('./webpack.common')
+const commonConfiguration = require('./webpack.common.js')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(
     commonConfiguration,
@@ -11,7 +11,6 @@ module.exports = merge(
         devtool: 'inline-source-map',
 
         devServer: {
-            hot: false,
             devMiddleware: {
                 writeToDisk: true,
             },
@@ -20,9 +19,13 @@ module.exports = merge(
         output:
         {
             path: path.resolve(__dirname, '../dist'),
-            filename: '[name].js',
+            filename: 'bundle.js',
             clean: true,
         },
+
+        plugins: [
+            new CleanWebpackPlugin(),
+        ],
         
         stats: 'errors-warnings',
     }
