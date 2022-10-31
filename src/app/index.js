@@ -1,4 +1,5 @@
-import HomePage from "./Pages/Home/HomePage"
+import HomePage from "./Pages/Home/HomePage";
+import PerseverencePage from "./Pages/Perseverence/PerseverencePage";
 
 import Experience from "./Experience/Experience";
 
@@ -26,6 +27,7 @@ class App {
   {
     this.pages = {
       home: new HomePage(),
+      perseverence: new PerseverencePage()
     };
 
     this.page = this.pages[this.template];

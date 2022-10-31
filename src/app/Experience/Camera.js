@@ -12,21 +12,25 @@ export default class Camera
         this.canvas = this.experience.canvas
         this.scene = this.experience.scene
         
-        this.createPerspectiveCamera()
-        this.setOrbitControls(this.canvas)
-        
     }
 
-    createPerspectiveCamera()
+    /**
+     * @param {number} fov
+     * @param {number} aspect
+     * @param {number} near
+     * @param {number} far
+     * @param {object} position
+     */
+    createPerspectiveCamera(fov, aspect, near, far, position)
     {
         this.perspectiveCamera = new THREE.PerspectiveCamera(
-            35,
-            this.sizes.width / this.sizes.height,
-            0.1,
-            100
+            fov,
+            aspect,
+            near,
+            far
         );
 
-        this.perspectiveCamera.position.set(6, 4, 28);
+        this.perspectiveCamera.position.set(position.x, position.y, position.z);
 
         this.scene.add(this.perspectiveCamera);
     }
@@ -50,6 +54,9 @@ export default class Camera
 
     update()
     {
-        this.controls.update()
+        if(this.controls)
+        {
+          this.controls.update()  
+        }
     }
 }

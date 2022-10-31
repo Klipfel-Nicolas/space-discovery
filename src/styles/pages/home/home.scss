@@ -68,11 +68,7 @@
         }
 
         ul {
-            li {
-                letter-spacing: .1rem;
-                padding: 5px;
-                text-align: end;
-            }
+            @extend %bottom-list;
         }
     }
     

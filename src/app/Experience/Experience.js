@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import Camera from './Camera';
 import Renderer from './Renderer';
 
-import HomeExperience from './Home/HomeExperience';
+import HomeExperience from './World/Pages/HomeExperience';
 
 import Debug from './Utils/Debug';
 import Resources from './Utils/Resources';
@@ -54,6 +54,9 @@ export default class Experience
     //   Home
     createHome() {
         this.homeExperience = new HomeExperience();
+        this.camera.createPerspectiveCamera(35, this.sizes.width / this.sizes.height, 0.1, 100, {x: 6, y: 4, z: 28})
+        this.camera.setOrbitControls(this.canvas)
+        this.camera.setOrbitControls(this.renderer.labelRenderer.domElement) 
     }
 
     destroyHome() {

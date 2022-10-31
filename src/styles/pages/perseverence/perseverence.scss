@@ -1,0 +1,27 @@
+.perseverence_container {
+    @extend %viewport;
+    background: #000000;
+
+     /*  --------------------
+            Top Row 
+    --------------------  */
+    .perseverence_container_header {
+        .perseverence_container_header_title {
+            @extend %title-53;
+        }
+    }
+
+
+    /*  --------------------
+            Bottom Row 
+    --------------------  */
+    .perseverence_container_bottom-content {
+        img {
+            max-width: 200px;
+        }
+
+        ul {
+            @extend %bottom-list;
+        }
+    }
+}

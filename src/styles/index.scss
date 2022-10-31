@@ -13,6 +13,7 @@
 
 @import './shared/row-layout.scss';
 @import './shared/titles';
+@import './shared/list';
 
 // --------------------------------- B A S E ----------------------------------------
 
@@ -28,7 +29,8 @@
 
 // -------------------------- P A G E S  D I R E C T O R Y --------------------------
 
-
-// Home
 @import './pages/home/home';
+@import './pages/perseverence/perseverence';
+
+
 // ------------------------------------

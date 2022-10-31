@@ -24,7 +24,13 @@ export default class Renderer
         }
 
         this.setRenderer();
-        this.setCSSRenderer();
+
+        // CssRenderer only for render Satellites links
+        if(this.experience.template === 'home')
+        {
+            this.setCSSRenderer();
+        }
+        
     }
 
     setRenderer()
@@ -81,7 +87,10 @@ export default class Renderer
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio, 2);
 
-        this.labelRenderer.setSize(this.sizes.width, this.sizes.height);
+        if(this.labelRenderer)
+        {
+           this.labelRenderer.setSize(this.sizes.width, this.sizes.height); 
+        }
     }
 
     /**
@@ -89,8 +98,15 @@ export default class Renderer
      */
     update()
     {
-        this.renderer.render(this.scene, this.camera.perspectiveCamera)
-
-        this.labelRenderer.render(this.scene, this.camera.perspectiveCamera);
+        if(this.scene, this.camera.perspectiveCamera)
+        {
+          this.renderer.render(this.scene, this.camera.perspectiveCamera)  
+        }
+        
+        if(this.labelRenderer)
+        {
+          this.labelRenderer.render(this.scene, this.camera.perspectiveCamera);  
+        }
+        
     }
 }

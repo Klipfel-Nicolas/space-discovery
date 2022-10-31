@@ -19,18 +19,34 @@ export default class Environment
             this.debugFolder.close()
         }
 
-        // Setup
-        this.setSunLight()
-        this.setAmbientLight()
     }
 
-    setSunLight() {
-        this.sunLight = new THREE.DirectionalLight('#f1f1f1', 2);
-        this.sunLight.castShadow = true;
-        this.sunLight.shadow.camera.far = 15;
-        this.sunLight.shadow.mapSize.set(1024, 1024);
-        this.sunLight.shadow.normalBias = 0.05;
-        this.sunLight.position.set(3, 3, - 2.25);
+    /**
+     * @param {string} color
+     * @param {number} intensity
+     * @param {boolean} castShadow
+     * @param {number} shadowCameraFar
+     * @param {number} mapSize
+     * @param {number} normalBias
+     * @param {object} position
+     */
+    setSunLight
+    (
+        color,
+        intensity,
+        castShadow,
+        shadowCameraFar,
+        mapSize,
+        normalBias, 
+        position
+    ) 
+    {
+        this.sunLight = new THREE.DirectionalLight(color, intensity);
+        this.sunLight.castShadow = castShadow;
+        this.sunLight.shadow.camera.far = shadowCameraFar;
+        this.sunLight.shadow.mapSize.set(mapSize, mapSize);
+        this.sunLight.shadow.normalBias = normalBias;
+        this.sunLight.position.set(position.x, position.y, position.z);
         this.scene.add(this.sunLight);
 
         // Debug 
@@ -50,8 +66,12 @@ export default class Environment
         }
     }
 
-    setAmbientLight() {
-        this.ambientLight = new THREE.AmbientLight(0xffffff, .1);
+    /**
+     * @param {string} color
+     * @param {number} intensity
+     */
+    setAmbientLight(color, intensity) {
+        this.ambientLight = new THREE.AmbientLight(color, intensity);
         this.scene.add(this.ambientLight);
 
         if(this.debug.active)
