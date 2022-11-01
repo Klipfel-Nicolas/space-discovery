@@ -17,6 +17,7 @@ export default class Satellites
         this.satelliteTwo = this.resources.items.satelliteTwo
         this.satelliteThree = this.resources.items.satelliteThree
         this.perseveranceRover = this.resources.items.perseveranceRover
+        this.perseverenceCustom = this.resources.items.perseverenceCustom
 
     }
 
@@ -95,7 +96,6 @@ export default class Satellites
      {
         this.createLink(model, label, link)
         this.setScale(model, scale)
-        console.log(model, rotation)
         rotation != null ? this.setRotation(model, rotation) : ''
         position != null ? this.setPosition(model, position) : ''
      }

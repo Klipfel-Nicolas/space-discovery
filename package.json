@@ -1,6 +1,7 @@
 {
   "repository": "#",
   "license": "UNLICENSED",
+
   "scripts": {
     "backend:build": "node ./src/server/server.js",
     "backend:development": "nodemon ./src/server/server.js",

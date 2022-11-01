@@ -32,6 +32,40 @@
     <!-- Middle Row -->
     <div class="perseverence_container_middle-content middle-row">
         
+        <!-- Rover elements list -->
+        <div class="perseverence-elements">
+
+            <div class="perseverence-elements_button">On / Off</div>
+
+            <ul class="perseverence-elements_list toggle-visible-js">
+                {{#each interestPoints}}
+                <li class="element">
+                    <div class="element_name">
+                        <p>{{this.name}} </p>
+                    </div>
+
+                    <div class="element_index">
+                        <p>{{inc @index}}</p> 
+                    </div> 
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        <!-- Rover interest points -->
+        <ul class='list_interestPoints toggle-visible-js'>
+            {{#each interestPoints}}
+            <li id="interest-point-{{@index}}" class='interset-point'>
+                <div class="interest-point_index">
+                    {{inc @index}}
+                </div>
+                <div class="interest-point__name">
+                    {{this.name}}
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+
     </div>
     
     <!-- Bottom Row -->

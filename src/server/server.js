@@ -4,6 +4,9 @@ const fs = require('fs')
 const bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
 
+// Datas
+const perseverencDatas = require('./Utils/perseverenceDatas')
+
 const app = express()
 
 app.use(express.static(path.resolve(__dirname, '../../dist')))
@@ -15,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('views', path.join(__dirname, '../views'));
 app.engine( 'hbs', hbs.engine({
     extname: 'hbs',
+    helpers: require('./Utils/handlebars-helpers'),
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, '../views'),
     partialsDir: path.join(__dirname, '../views/partials/'),
@@ -44,6 +48,7 @@ app.get('/perseverence/', (req, res) => {
     res.render('main.hbs', {
         title: 'Perseverence',
         template: 'perseverence',
+        interestPoints: perseverencDatas.elementsPerseverance,
         whichPartial: function() {
             return "pages/perseverence";
         }

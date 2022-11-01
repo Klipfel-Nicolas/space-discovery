@@ -35,12 +35,32 @@ export default class Camera
         this.scene.add(this.perspectiveCamera);
     }
 
-    setOrbitControls(renderer)
+    /**
+     * 
+     * @param {object} renderer 
+     * @param {boolean} enableDamping
+     */
+    setOrbitControls(renderer, enableDamping)
     {
         this.controls = new OrbitControls(this.perspectiveCamera, renderer)
-        this.controls.enableDamping = true
-        this.controls.minDistance = 10;
-        this.controls.maxDistance = 35; 
+        this.controls.enableDamping = enableDamping;
+    }
+
+    /**
+     * 
+     * @param {number} minDistance 
+     * @param {number} maxDistance 
+     * @param {number} zoomSpeed 
+     * @param {number} maxPolarAngle 
+     */
+    orbitControlsSettings(minDistance, maxDistance, zoomSpeed, maxPolarAngle)
+    {
+        this.controls.minDistance = minDistance;
+        this.controls.maxDistance = maxDistance; 
+        
+        if(zoomSpeed) this.controls.zoomSpeed = zoomSpeed;
+        if (maxPolarAngle) this.controls.maxPolarAngle = maxPolarAngle;
+
     }
 
     /**

@@ -84,4 +84,15 @@ export default class Environment
             this.ambientDebugFolder.close()
         }
     }
+
+    /**
+     * 
+     * @param {string} color 
+     * @param {number} near 
+     * @param {number} far 
+     */
+    setFog(color, near, far)
+    {
+        this.scene.fog = new THREE.Fog( color, near, far );
+    }
 }

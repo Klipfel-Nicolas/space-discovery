@@ -7,13 +7,13 @@
 
 html {
   font-family: $font-orbitron;
-  font-size: calc(100vw / 1920px * 10px);
+  font-size: calc(100vw / 1920px * 12px);
   line-height: 1;
   overflow: hidden;
   color: $color-white;
 
   @media(max-width: 750px) {
-    font-size: calc(100vw / 750px * 10px);
+    font-size: calc(100vw / 750px * 12px);
   }
 }
 

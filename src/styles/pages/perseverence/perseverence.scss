@@ -6,6 +6,7 @@
             Top Row 
     --------------------  */
     .perseverence_container_header {
+        z-index: 1;
         .perseverence_container_header_title {
             @extend %title-53;
         }
@@ -13,9 +14,165 @@
 
 
     /*  --------------------
+            Middle Row 
+    --------------------  */
+    .perseverence_container_middle-content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        
+        /*
+            Interest points
+        */
+        .list_interestPoints {
+            li {
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2000;
+
+                &:hover{
+                    .interest-point__name{
+                        opacity: 1;
+                    }
+                }
+
+                .interest-point_index {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, .6);
+                    border: 1px solid rgba(255, 255, 255, .7);
+                    color: #ffffff;
+                    text-align: center;
+                    cursor: help;
+                    transform: scale(0, 0);
+                    transition: transform .3s;
+                }
+
+                .interest-point__name {
+                    position: absolute;
+                    top: 30px;
+                    left: -120px;
+                    padding: 10px;
+                    border-radius: 4px;
+                    background: rgba(0, 0, 0, .6);
+                    border: 1px solid rgba(255, 255, 255, .7);
+                    color: #ffffff;
+                    text-align: center;
+                    opacity: 0;
+                    transition: opacity .3s;
+                    pointer-events: none;
+                }
+            }
+
+            // Points visible
+            &.visible {
+                .interest-point_index {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        /*
+            List elements
+        */
+        .perseverence-elements {
+            z-index: 1;
+
+            .perseverence-elements_button{
+                text-align: end;
+                cursor: pointer;
+                margin: 4rem 0;
+            }
+
+            .perseverence-elements_list {
+                .element {
+                    display: flex;
+                    margin: 2rem 0;
+
+                    .element_name {
+                        position: relative;
+                        overflow: hidden;
+                        flex: 1;
+                        padding-right: .8rem;
+
+                        p {
+                            transform: translateX(150%);
+                            margin-right: .8rem;
+                            opacity: .6;
+                            transition: transform .3s ease-in;
+                            text-align: end;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            width: 2px;
+                            height: 100%;
+                            top: 0;
+                            right: 1px;
+                            background-color: #f1f1f1;
+                            opacity: .5;      
+                            transition: transform .1s ease-in;
+                        }
+                    }
+
+                    .element_index {
+                        width: 25px;
+                        overflow: hidden;
+                        text-align: center;
+
+                        p{
+                            opacity: .6;
+                            transform:translateX(-150%) rotate(90deg);
+                        }
+                    }
+                    
+                    &:hover {
+                        cursor: pointer;
+                        
+                        .element_name p,
+                        .element_index p {
+                            opacity: 1;
+                        }   
+                    }
+                    
+                }
+
+                // List visible
+                &.visible {
+                    .element_name  {
+                        p {
+                          transform: translateX(0);  
+                        }
+                        
+                        &::after {
+                            transform: skew(15deg, 15deg);
+                        }
+                    }
+
+                    .element_index {
+                        p{
+                            transition: transform .3s ease-in;
+                            transform: translate(0%) rotate(90deg);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    /*  --------------------
             Bottom Row 
     --------------------  */
     .perseverence_container_bottom-content {
+        z-index: 1;
+
         img {
             max-width: 200px;
         }
@@ -24,4 +181,5 @@
             @extend %bottom-list;
         }
     }
+
 }

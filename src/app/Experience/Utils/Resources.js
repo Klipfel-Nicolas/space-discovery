@@ -74,6 +74,6 @@ export default class Resources extends EventEmitter
         const percentLoaded = loaded / totalToLoad * 100
         document.querySelector('.preloader_items-count').textContent = `${this.loaded}  / ${this.toLoad} items`
         document.querySelector('.preloader_progress-bar').style.transform = `scaleX(${percentLoaded / 100})`
-        document.querySelector('.preloader_progress-percent').textContent = `${percentLoaded} %`
+        document.querySelector('.preloader_progress-percent').textContent = `${Math.round(percentLoaded)} %`
     }
 }

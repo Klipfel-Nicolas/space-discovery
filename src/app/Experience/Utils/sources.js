@@ -38,5 +38,10 @@ export default [
         name: 'perseveranceRover',
         type: 'glbModel',
         path: 'models/perseverance-rover/perseverance.glb'
+    },
+    {
+        name: 'perseverenceCustom',
+        type: 'glbModel',
+        path: 'models/perseverence-custom/perseverenceCustom.glb'
     }
 ]
