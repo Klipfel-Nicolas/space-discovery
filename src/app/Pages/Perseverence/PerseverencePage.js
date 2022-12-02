@@ -1,6 +1,7 @@
 import Page from "../Page";
 
 import ButtonList from "../../Components/ButtonList";
+import ElementList from "../../Components/ElementList";
 
 export default class PerseverencePage extends Page
 {
@@ -11,7 +12,8 @@ export default class PerseverencePage extends Page
             element: '#perseverence',
             elements: {
                 listButton : '.perseverence-elements_button',
-                elements: '.toggle-visible-js'
+                elementsList: '.toggle-visible-js',
+                elements: '.perseverence-element'
             },
         });
     }
@@ -19,9 +21,15 @@ export default class PerseverencePage extends Page
     create() {
         super.create();
         
+        // Toggle list
         this.toggleButon = new ButtonList({
           element: this.elements.listButton,
-          toggleElements: this.elements.elements
+          toggleElements: this.elements.elementsList
+        })
+
+        // Toggle Element
+        this.elementButton = new ElementList({
+            elements: this.elements.elements
         })
     }
 

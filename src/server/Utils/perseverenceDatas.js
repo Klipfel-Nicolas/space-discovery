@@ -30,7 +30,7 @@ module.exports.elementsPerseverance = [
         more:"The Perseverance rover has six wheels, each with its own individual motor.<br>The two front and two rear wheels also have individual steering motors. This steering capability allows the vehicle to turn in place, a full 360 degrees. The four-wheel steering also allows the rover to swerve and curve, making arcing turns.<ul><li>Materials : <span>Made of aluminum, with cleats for traction and curved titanium spokes for springy support.</span></li><li>Size : <span>52.5 centimeters (20.7-inches) in diameter</span> </li><li>Other : <span>One full turn of the wheels with no slippage drives the rover 1.65 meters (65-inches).</span></li></ul>"
     },
     {
-        name:'Rover "Up-Look" Camera',
+        name:'Rover Up-Look Camera',
         positions: {
             x:.03,
             y:1.33,
@@ -46,7 +46,7 @@ module.exports.elementsPerseverance = [
             y:.9,
             z:.2
         },
-        description: "The ‘rocker-bogie’ suspension system allows the wheels to traverse uneven obstacles.",
+        description: "The 'rocker-bogie’ suspension system allows the wheels to traverse uneven obstacles.",
         more:"The suspension system has three main components: <ul><li>Differential: <span>Connects to the left and right rockers and to the rover body by a pivot in the center of the rover's top deck.</span></li> <li>Rocker : <span> One each on the left and right side of the rover. Connects the front wheel to the differential and the bogie in the rear.</span></li> <li>Bogie : <span>Connects the middle and rear wheels to the rocker.</span></li></ul> When driving over the uneven Martian terrain, the suspension system maintains a relatively constant weight on each of the rover's wheels. The suspension also minimizes rover tilt as it drives, keeping it more stable.The rover's rocker-bogie suspension enables the rover to drive over obstacles (such as rocks) or through depressions that are as large as the rover's wheel (52.5-centimeters, 20.7-inches). Each wheel has an aggressive tread composed of 48-grousers (or cleats), machined into its surface. The grousers give the rover excellent traction when driving in both soft sand and on hard rocks.<br>Perseverance is designed to withstand a tilt of 45 degrees in any direction without tipping over. "
     },
     {
@@ -130,7 +130,7 @@ module.exports.elementsPerseverance = [
         more: "Perseverance carries six newly developed Hazard Detection Cameras, called HazCams: four on the front and two on the rear of the rover body. HazCams detect hazards to the front and back pathways of the rover, such as large rocks, trenches, or sand dunes.<br>Engineers also use the front HazCams to see where to move the robotic arm to take measurements, photos, and collect rock and soil samples.<br>When driving, the rover stops frequently to take new stereo images of the path ahead to evaluate potential hazards. The 3D views give Mars 2020 the ability to make its own decisions about where to drive without consulting on every move with the rover team on Earth."
     },
     {
-        name:'Rover "Down-Look" Camera',
+        name:'Rover Down-Look Camera',
         positions: {
             x: -.22,
             y:0.77,

@@ -39,7 +39,7 @@
 
             <ul class="perseverence-elements_list toggle-visible-js">
                 {{#each interestPoints}}
-                <li class="element">
+                <li class="element perseverence-element {{removeSpace this.name}}" data-name="{{removeSpace this.name}}">
                     <div class="element_name">
                         <p>{{this.name}} </p>
                     </div>
@@ -55,7 +55,7 @@
         <!-- Rover interest points -->
         <ul class='list_interestPoints toggle-visible-js'>
             {{#each interestPoints}}
-            <li id="interest-point-{{@index}}" class='interset-point'>
+            <li id="interest-point-{{@index}}" class='interset-point perseverence-element {{removeSpace this.name}}' data-name="{{removeSpace this.name}}">
                 <div class="interest-point_index">
                     {{inc @index}}
                 </div>

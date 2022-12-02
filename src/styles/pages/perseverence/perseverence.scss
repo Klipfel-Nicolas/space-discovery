@@ -31,9 +31,16 @@
                 left: 50%;
                 z-index: 2000;
 
-                &:hover{
+                &:hover {
                     .interest-point__name{
                         opacity: 1;
+                    }
+                }
+
+                &.selected {
+                    .interest-point_index {
+                        border-color: $color-apple-red;
+                        color: $color-apple-red;
                     }
                 }
 
@@ -110,7 +117,7 @@
                         &::after {
                             content: '';
                             position: absolute;
-                            width: 2px;
+                            width: 1px;
                             height: 100%;
                             top: 0;
                             right: 1px;
@@ -138,6 +145,20 @@
                         .element_index p {
                             opacity: 1;
                         }   
+                    }
+
+                    &.selected {
+                        .element_name p,
+                        .element_index p {
+                            opacity: 1;
+                            color: $color-apple-red;
+                        }
+
+                        .element_name::after {
+                            transform: skew(0deg, 0deg);
+                            background-color: $color-apple-red;
+                            opacity: 1;
+                        }
                     }
                     
                 }
