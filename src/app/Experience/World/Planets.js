@@ -13,7 +13,7 @@ export default class Planets
         // Debug
         this.debug = this.experience.debug
         
-        if(this.debug.active)
+        if(this.debug.active && this.debug.template === "home")
         {
             this.debugFolder = this.debug.ui.addFolder('Mars')
             this.debugFolder.close()
@@ -56,7 +56,7 @@ export default class Planets
         })
 
         // Debug 
-        if(this.debug.active)
+        if(this.debug.active && this.debug.template === "home")
         {
             this.debugFolder.add(this.material, 'displacementScale').min(0).max(4).step(0.1).name('displacementScale')
         }

@@ -1,5 +1,6 @@
-import ButtonList from "../../Components/ButtonList";
 import Page from "../Page";
+
+import ButtonList from "../../Components/ButtonList";
 
 export default class PerseverencePage extends Page
 {

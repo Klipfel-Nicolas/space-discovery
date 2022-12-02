@@ -28,7 +28,7 @@ export default class Experience
         // Setup
         this.template = template;
         this.canvas = document.querySelector('canvas.webgl');
-        this.debug = new Debug();
+        this.debug = new Debug(template);
         this.sizes = new Sizes();
         this.time = new Time();
         this.scene = new THREE.Scene();

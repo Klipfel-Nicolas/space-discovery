@@ -4,11 +4,11 @@ import Stats from 'stats-js'
 // Add to url -> /#debug
 export default class Debug
 {
-    constructor()
+    constructor(template)
     {
         this.active = window.location.hash === '#debug'
+        this.template = template;
         
-
         if(this.active)
         {
             // gui
@@ -17,7 +17,7 @@ export default class Debug
             // stats
             this.stats = new Stats()
             this.stats.showPanel(0)
-            document.getElementById('home').appendChild( this.stats.dom );
+            document.getElementById(template).appendChild( this.stats.dom );
         }
     }
 }

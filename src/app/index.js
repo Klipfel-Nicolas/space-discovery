@@ -36,7 +36,6 @@ class App {
 
   onChange() 
   {
-    console.log(this.template)
     this.experience.onPageChange(this.template)
   }
 
